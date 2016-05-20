@@ -1,0 +1,25 @@
+<div id="results">
+  <table class="results-table">
+    <% results.each do | result | %>
+      <tr>
+        <td>
+          <%= result.name %>
+        </td>
+        <td>
+          <%= result.location.address[0] %>
+        </td>
+      </tr>
+      <% search_tweets = client.user_search(result.name).first %>
+      <% if search_tweets != nil %>
+        <% @all_tweets = get_all_tweets(search_tweets.screen_name) %>
+
+        <% @all_tweets.each_with_index do | tweet, idx | %>
+          <p>
+            <%= tweet.text %>
+          </p>
+          <% break if idx == 4 %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </table>
+</div>

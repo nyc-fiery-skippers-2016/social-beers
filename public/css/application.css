@@ -1,0 +1,81 @@
+body {
+  background-image: url('../imgs/bg.jpg');
+  background-size: cover;
+  height: 100%;
+}
+
+#search-home {
+  width: 600px;
+  height: 300px;
+  /*background-color: rgba(204, 204, 204, 0.7);*/
+  border-radius: 20px;
+  margin: 0 auto;
+  margin-top: 230px;
+}
+
+div#search-container {
+  padding-top: 80px;
+}
+
+form {
+  margin-left: 105px;
+}
+
+form input.search-string {
+  display: block;
+  width: 400px;
+  height: 70px;
+  border: none;
+  font-size: 22px;
+  font-weight: bold;
+  color: #DCB13C;
+  background-color: #0A0E28;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form input.search-submit-button {
+  display: block;
+  width: 407px;
+  height: 50px;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  background-color: #0A0E28;
+}
+
+div#results-container {
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+table#breweries {
+  display: none;
+  margin-left: -600px;
+  background-color: #ccc;
+  height: 700px;
+  margin-top: 120px;
+  width: 600px;
+  background-color: rgba(204, 204, 204, 0.7);
+  border-top-right-radius: 10px;
+}
+
+table#breweries tr {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+table#breweries tr td.block {
+  display: block;
+}
+
+table#breweries tr td.location-td {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.view-tweets {
+  float: right;
+}

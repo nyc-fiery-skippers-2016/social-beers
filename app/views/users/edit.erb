@@ -1,0 +1,18 @@
+<h3>Edit User Profile</h3>
+
+<form method="post" action="/users">
+  <input type="hidden" name="_method" value="put">
+  <input type="hidden" name="user_id" value="<%= @user.id %>">
+  <input type="text" name="username" value="<%= @user.username %>">
+  <input type="text" name="email" value="<%= @user.email %>">
+  <input type="password" name="password" placeholder="Input password to confirm.">
+  <input type="submit" value="Edit Profile">
+</form>
+
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <ul>
+      <li><%= error %></li>
+    </ul>
+  <% end %>
+<% end %>
