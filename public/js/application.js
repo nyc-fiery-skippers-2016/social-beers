@@ -16,6 +16,11 @@ $(document).ready(function() {
     var url = target.action;
     var data = $( target ).serialize();
 
+// if($(this).css("background-color") == "rgb(255, 255, 255)")
+    if ( $( 'table#breweries' ).css( 'margin-left' ) === '0px' ) {
+      $("table#breweries").animate({'margin-left': '-=600'});
+    }
+
     $( '#results-container table' ).empty();
 
     $.ajax({
@@ -30,10 +35,10 @@ $(document).ready(function() {
                 "><td class="+ "block" + ">" +
                 getName( object ) +
                 "</td>" +
+                "<td class=" + "view-tweets" + ">" +
+                "<a href='/tweets'>view tweets</a>" +
                 "<td class="+ "location-td" + ">" +
                 getLocation( object ) +
-                "<td class=" + "view-tweets" + ">" +
-                "<a href='/tweets'>View Tweets</a>" +
                 "</td></tr>";
         $( '#results-container table' ).append( html );
       });
@@ -46,7 +51,16 @@ $(document).ready(function() {
     var target = e.target;
     var url = $(target).attr('href');
     var name = $(target).parent().parent().find('.block').html();
-    var data = "name=" + name
+    var searchName = []
+
+    name.split( ' ' ).forEach( function( word, idx, name ) {
+      if ( word === 'Company' ) {
+        searchName.push( 'Co' );
+      } else {
+        searchName.push( word )
+      }
+    });
+    var data = "name=" + searchName.join( ' ' );
 
     $.ajax({
       type: 'POST',
@@ -56,7 +70,13 @@ $(document).ready(function() {
       $( 'ul.tweets-list' ).empty();
 
       for ( var tweet in response ) {
-        $( 'ul.tweets-list' ).append( "<li>" + response[tweet] + "</li>" )
+        debugger;
+        html = "<a class=" + "twitter-timeline" + " data-widget-id=" + "733668591241986048" + " data-screen-name=" + response.screen_name +"></a>"
+        $( 'div#tweets-container' ).empty();
+        $( 'div#tweets-container' ).append( html );
+        twttr.widgets.load(
+          document.getElementsByClassName('twitter-timeline')
+        );
       };
     });
   });
