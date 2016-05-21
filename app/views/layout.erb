@@ -32,6 +32,7 @@
 }(document, "script", "twitter-wjs"));</script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
+  <script src="/js/spin.min.js"></script>
 
   <title></title>
 </head>
@@ -39,6 +40,23 @@
   <header>
   </header>
   <div id="yield-container">
+    <h1>social beers</h1>
+    <% if !logged_in? %>
+      <div class="user-lr">
+        <a class="login-link" href="/login">Login</a>
+        <a class="register-link" href="/users/new">Register</a>
+      </div>
+
+      <div id="ajax-form">
+      </div>
+    <% end %>
+
+    <div class="corner-li">
+      <% if logged_in? %>
+        <p>Welcome, <%= current_user.username %></p>
+        <a class="logout-button" href="/logout">Logout</a>
+      <% end %>
+    </div>
     <%= yield %>
   </div>
 </body>

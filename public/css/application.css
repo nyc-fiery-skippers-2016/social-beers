@@ -23,7 +23,7 @@ h1 {
 
 .user-lr {
   float: right;
-  margin-top: -4em;
+  margin-top: -5em;
   margin-right: 5em;
 }
 
@@ -37,23 +37,37 @@ h1 {
   background-color: white;
   display: inline-block;
   margin-left: 2em;
-
 }
 
 .user-lr a:hover {
   background-color: #F07017;
-  /*border: 1px solid #F07017;*/
   color: white;
   transition: border 0.5s ease;
   transition: background-color 0.5s ease;
   transition: color 0.5s ease;
+}
 
+a.logout-button {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  border: 1px solid #fff;
+  padding: 5px 35px;
+  border-radius: 15px;
+  margin-left: 32%;
+  margin-right: 21%;
+  display: block;
+  margin-top: -20px
+}
+
+a.logout-button:hover {
+  background-color: #F07017;
+  transition: background-color 0.5s ease;
 }
 
 #search-home {
   width: 600px;
   height: 300px;
-  /*background-color: rgba(204, 204, 204, 0.7);*/
   border-radius: 20px;
   margin: 0 auto;
   margin-top: 8em;
@@ -197,5 +211,13 @@ table#breweries tr td.block {
   float: right;
   margin-top: -20em;
   margin-right: 3em;
+}
 
+div.corner-li {
+  font-family: 'Montserrat', sans-serif;
+  color: #FFF;
+  font-size: 2em;
+  margin-right: 3.5em;
+  float: right;
+  margin-top: -105px;
 }
